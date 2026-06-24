@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0", 
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/web"
+    }
+  ]
+}
