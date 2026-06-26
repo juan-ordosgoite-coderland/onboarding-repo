@@ -1,0 +1,37 @@
+/* Contenedor principal */
+.tabs-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  font-family: sans-serif;
+}
+
+/* Lista de pestañas */
+.tabs-list {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Botón de cada pestaña individual */
+.tabs-trigger {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Base UI añade automáticamente atributos de estado como data-selected */
+.tabs-trigger[data-selected] {
+  color: #ff6600; /* Color corporativo simulado */
+  border-bottom: 2px solid #ff6600;
+  font-weight: bold;
+}
+
+/* Panel de contenido */
+.tabs-panel {
+  padding: 20px 0;
+  font-size: 14px;
+}

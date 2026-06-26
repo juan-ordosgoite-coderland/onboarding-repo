@@ -2,7 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "compilerOptions": {
-    "ignoreDeprecations": "6.0", 
+    "ignoreDeprecations": "6.0",
     "module": "esnext",
     "moduleResolution": "bundler"
   },
@@ -10,6 +10,9 @@
   "references": [
     {
       "path": "./apps/web"
+    },
+    {
+      "path": "./modules/ui-components"
     }
   ]
 }
