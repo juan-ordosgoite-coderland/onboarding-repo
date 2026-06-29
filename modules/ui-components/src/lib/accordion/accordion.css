@@ -1,0 +1,35 @@
+.accordion-root {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  font-family: sans-serif;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 14px;
+  text-align: left;
+  background: #f9f9f9;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.accordion-trigger:hover {
+  background: #f1f1f1;
+}
+
+.accordion-panel {
+  padding: 14px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+}
