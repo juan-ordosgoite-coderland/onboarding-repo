@@ -69,3 +69,5 @@ monitor-ci.toml
 .prettierignore
 .prettierrc
 .vscode/extensions.json
+AGENTS.md
+CLAUDE.md

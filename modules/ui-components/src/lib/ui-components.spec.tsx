@@ -6,7 +6,6 @@ import { MyAccordion } from './accordion/accordion';
 import { MyDialog } from './dialog/dialog';
 
 describe('UI Components Suite', () => {
-  
   // 1. TEST PARA TABS
   test('MyTabs: debe cambiar de panel al hacer clic en la pestaña correspondiente', async () => {
     render(
@@ -17,7 +16,7 @@ describe('UI Components Suite', () => {
         </MyTabs.List>
         <MyTabs.Panel value="tab1">Contenido Uno</MyTabs.Panel>
         <MyTabs.Panel value="tab2">Contenido Dos</MyTabs.Panel>
-      </MyTabs>
+      </MyTabs>,
     );
 
     expect(screen.getByText('Contenido Uno')).toBeDefined();
@@ -36,7 +35,7 @@ describe('UI Components Suite', () => {
           <MyAccordion.Trigger>Mostrar más</MyAccordion.Trigger>
           <MyAccordion.Panel>Contenido Oculto</MyAccordion.Panel>
         </MyAccordion.Item>
-      </MyAccordion>
+      </MyAccordion>,
     );
 
     const trigger = screen.getByRole('button', { name: 'Mostrar más' });
@@ -56,7 +55,7 @@ describe('UI Components Suite', () => {
             <MyDialog.Close>Cerrar</MyDialog.Close>
           </MyDialog.Popup>
         </MyDialog.Portal>
-      </MyDialog>
+      </MyDialog>,
     );
 
     const botonAbrir = screen.getByRole('button', { name: 'Abrir Modal' });
