@@ -15,7 +15,7 @@ export async function GET() {
 
 // Permitimos que nuestra Server Action actualice este estado internamente
 export function updateTaskStatusInDB(id: number, status: string) {
-  ONBOARDING_TASKS = ONBOARDING_TASKS.map(task => 
-    task.id === id ? { ...task, status } : task
+  ONBOARDING_TASKS = ONBOARDING_TASKS.map((task) =>
+    task.id === id ? { ...task, status } : task,
   );
 }

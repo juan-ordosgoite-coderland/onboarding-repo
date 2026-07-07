@@ -17,8 +17,8 @@ async function getDynamicData(): Promise<ApiResponse> {
       items: [
         { id: 1, title: 'Monorepo Setup', status: 'completed' },
         { id: 2, title: 'UI Components', status: 'completed' },
-        { id: 3, title: 'Rendering & Cache', status: 'in_progress' }
-      ]
+        { id: 3, title: 'Rendering & Cache', status: 'in_progress' },
+      ],
     };
   }
 }
@@ -29,9 +29,19 @@ async function DynamicTasksContent() {
 
   return (
     <>
-      <div style={{ padding: '16px', background: '#fff3e0', borderRadius: '8px', marginBottom: '24px', border: '1px solid #ffe0b2' }}>
+      <div
+        style={{
+          padding: '16px',
+          background: '#fff3e0',
+          borderRadius: '8px',
+          marginBottom: '24px',
+          border: '1px solid #ffe0b2',
+        }}
+      >
         <h2>Estrategia: Dynamic Rendering (SSR via Cache Components)</h2>
-        <p><strong>🕒 Hora de los Datos (API):</strong> {data.timestamp}</p>
+        <p>
+          <strong>🕒 Hora de los Datos (API):</strong> {data.timestamp}
+        </p>
         <p suppressHydrationWarning>
           <strong>⏰ Hora del Render en Servidor:</strong> {serverRenderTime}
         </p>
@@ -52,9 +62,18 @@ async function DynamicTasksContent() {
 
           {data.items.map((item) => (
             <MyTabs.Panel key={item.id} value={`item-${item.id}`}>
-              <div style={{ padding: '16px', background: '#f5f5f5', borderRadius: '4px', marginTop: '8px' }}>
+              <div
+                style={{
+                  padding: '16px',
+                  background: '#f5f5f5',
+                  borderRadius: '4px',
+                  marginTop: '8px',
+                }}
+              >
                 <h4>{item.title}</h4>
-                <p>Estado actual: <strong>{item.status}</strong></p>
+                <p>
+                  Estado actual: <strong>{item.status}</strong>
+                </p>
               </div>
             </MyTabs.Panel>
           ))}
@@ -66,7 +85,14 @@ async function DynamicTasksContent() {
 
 export default function DinamicaPage() {
   return (
-    <main style={{ padding: '24px', fontFamily: 'sans-serif', maxWidth: '600px', margin: '0 auto' }}>
+    <main
+      style={{
+        padding: '24px',
+        fontFamily: 'sans-serif',
+        maxWidth: '600px',
+        margin: '0 auto',
+      }}
+    >
       <Suspense fallback={<div>Cargando panel dinámico asíncrono...</div>}>
         <DynamicTasksContent />
       </Suspense>
