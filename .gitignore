@@ -71,3 +71,4 @@ monitor-ci.toml
 .vscode/extensions.json
 AGENTS.md
 CLAUDE.md
+packages/
