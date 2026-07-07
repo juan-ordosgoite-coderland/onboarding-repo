@@ -29,7 +29,7 @@ jobs:
       - run: npm ci
 
       # 3. Comprobamos el formateo de código localmente sin pasar por Nx Cloud
-      - run: npx nx format:check --base="remotes/origin/main"
+      - run: npx nx format:check --base="remotes/origin/main" || (git diff && exit 1)
 
       # 4. Lanzamos la batería de tareas del monorepo de forma local
       - run: npx nx run-many -t lint test build typecheck
