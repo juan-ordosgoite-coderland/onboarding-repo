@@ -1,31 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { revalidatePath } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
-  const path = searchParams.get('path');
+  const tag = searchParams.get('tag');
 
-  if (!path) {
-    return NextResponse.json(
-      { message: 'Falta el parámetro "path". Ejemplo: ?path=/estatica' },
-      { status: 400 }
-    );
+  if (!tag) {
+    return NextResponse.json({ message: 'Falta el parámetro "tag". Ejemplo: ?tag=tasks-cache' }, { status: 400 });
   }
 
-  try {
-    // Purgamos la caché de la página
-    revalidatePath(path);
-    console.log(`[API Revalidate] Caché purgada con éxito para el path: ${path}`);
-    
-    return NextResponse.json({ 
-      revalidated: true, 
-      path, 
-      now: new Date().toLocaleTimeString('es-ES') 
-    });
-  } catch (error) {
-    return NextResponse.json(
-      { message: 'Error al revalidar la caché', error },
-      { status: 500 }
-    );
-  }
+  // Pasamos el segundo argumento exigido por TypeScript en Next 16
+  revalidateTag(tag, 'default');
+  
+  return NextResponse.json({ 
+    revalidatedByTag: true, 
+    tag, 
+    now: new Date().toLocaleTimeString('es-ES') 
+  });
 }

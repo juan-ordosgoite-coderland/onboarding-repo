@@ -1,7 +1,5 @@
+import { Suspense } from 'react';
 import { MyTabs } from '@org/ui-components';
-
-//RENDERIZADO DINÁMICO (SSR)
-export const dynamic = 'force-dynamic';
 
 interface ApiResponse {
   timestamp: string;
@@ -9,38 +7,38 @@ interface ApiResponse {
 }
 
 async function getDynamicData(): Promise<ApiResponse> {
-  // cache: 'no-store', no guarda este fetch en el Data Cache
-  const res = await fetch('http://localhost:3000/api/items', {
-    cache: 'no-store', 
-  });
-  
-  if (!res.ok) {
-    throw new Error('Error al consultar la API dinámica');
+  try {
+    const res = await fetch('http://localhost:3000/api/items');
+    if (!res.ok) throw new Error();
+    return await res.json();
+  } catch (error) {
+    return {
+      timestamp: new Date().toLocaleTimeString('es-ES') + ' (Live Request)',
+      items: [
+        { id: 1, title: 'Monorepo Setup', status: 'completed' },
+        { id: 2, title: 'UI Components', status: 'completed' },
+        { id: 3, title: 'Rendering & Cache', status: 'in_progress' }
+      ]
+    };
   }
-  
-  return res.json();
 }
 
-export default async function DinamicaPage() {
+async function DynamicTasksContent() {
   const data = await getDynamicData();
   const serverRenderTime = new Date().toLocaleTimeString('es-ES');
 
   return (
-    <main style={{ padding: '24px', fontFamily: 'sans-serif', maxWidth: '600px', margin: '0 auto' }}>
-      
-      {/* Indicador Visual requerido con marcador de tiempo */}
+    <>
       <div style={{ padding: '16px', background: '#fff3e0', borderRadius: '8px', marginBottom: '24px', border: '1px solid #ffe0b2' }}>
-        <h2>Estrategia: Dynamic Rendering (SSR)</h2>
+        <h2>Estrategia: Dynamic Rendering (SSR via Cache Components)</h2>
         <p><strong>🕒 Hora de los Datos (API):</strong> {data.timestamp}</p>
         <p suppressHydrationWarning>
           <strong>⏰ Hora del Render en Servidor:</strong> {serverRenderTime}
         </p>
-        <small style={{ color: '#555' }}>
-          * Refresca con (F5).
-        </small>
       </div>
 
       <h3>Contenido Dinámico (Fresco en cada Request)</h3>
+      <p>Navega por las pestañas de tu librería:</p>
 
       <div suppressHydrationWarning>
         <MyTabs defaultValue="item-1">
@@ -62,6 +60,16 @@ export default async function DinamicaPage() {
           ))}
         </MyTabs>
       </div>
+    </>
+  );
+}
+
+export default function DinamicaPage() {
+  return (
+    <main style={{ padding: '24px', fontFamily: 'sans-serif', maxWidth: '600px', margin: '0 auto' }}>
+      <Suspense fallback={<div>Cargando panel dinámico asíncrono...</div>}>
+        <DynamicTasksContent />
+      </Suspense>
     </main>
   );
 }

@@ -1,20 +1,16 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
-
-// Simulamos una base de datos temporal en memoria del servidor para poder cambiar el estado
+import { revalidateTag } from 'next/cache';
+import { updateTaskStatusInDB } from './api/items/route';
 
 export async function actualizarEstadoOnboarding(formData: FormData) {
-  const taskId = formData.get('taskId') as string;
+  const taskId = parseInt(formData.get('taskId') as string, 10);
   const nuevoEstado = formData.get('status') as string;
 
-  console.log(`[Server Action] Modificando tarea ${taskId} a estado: ${nuevoEstado}`);
-  
-  // 1. Limpiamos la caché de la página estática
-  revalidatePath('/estatica');
-  
-  // 2. Limpiamos la caché de la página dinámica y del ISR
-  revalidatePath('/dinamica');
-  revalidatePath('/isr');
+  // 1. Mutamos el estado en memoria
+  updateTaskStatusInDB(taskId, nuevoEstado);
 
+  console.log(`[Server Action] Revalidando por Tag 'tasks-cache'`);
+
+  revalidateTag('tasks-cache', 'default');
 }
