@@ -2,7 +2,9 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+  "contentful:types": "cf-content-types-generator -s 6jmt7rvzai2t -t XG2lI1Bmh1b0mky6Pq6Q-yPkGKTjCqMp4MexBBPcajE -o ./modules/contentful-client/src/lib/types -g -e blank"
+},
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -32,6 +34,7 @@
     "@vitest/coverage-v8": "~4.1.0",
     "@vitest/ui": "~4.1.0",
     "babel-jest": "~30.3.0",
+    "cf-content-types-generator": "^2.16.1",
     "eslint": "^9.8.0",
     "eslint-config-next": "^16.1.6",
     "eslint-config-prettier": "^10.0.0",
@@ -60,6 +63,7 @@
   ],
   "dependencies": {
     "@base-ui/react": "^1.6.0",
+    "contentful": "^11.12.6",
     "next": "~16.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
