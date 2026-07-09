@@ -5,6 +5,7 @@ Librería de componentes UI accesibles y agnósticos desarrollada con **Base UI*
 ## Componentes Disponibles (Compound Pattern)
 
 ### 1. MyTabs
+
 Permite organizar contenido en pestañas accesibles.
 
 ```tsx
@@ -33,14 +34,17 @@ export default function EjemploAccordion() {
       <MyAccordion.Item value="item-1">
         <MyAccordion.Trigger>¿Qué es NX Workspace?</MyAccordion.Trigger>
         <MyAccordion.Panel>
-          Es una herramienta de gestión de monorepos inteligente, rápida y extensible que optimiza flujos de trabajo en equipos modernos.
+          Es una herramienta de gestión de monorepos inteligente, rápida y
+          extensible que optimiza flujos de trabajo en equipos modernos.
         </MyAccordion.Panel>
       </MyAccordion.Item>
 
       <MyAccordion.Item value="item-2">
         <MyAccordion.Trigger>¿Por qué usamos Base UI?</MyAccordion.Trigger>
         <MyAccordion.Panel>
-          Porque nos provee componentes sin estilos con excelente comportamiento de accesibilidad, permitiéndonos acoplar cualquier solución estética como CSS puro.
+          Porque nos provee componentes sin estilos con excelente comportamiento
+          de accesibilidad, permitiéndonos acoplar cualquier solución estética
+          como CSS puro.
         </MyAccordion.Panel>
       </MyAccordion.Item>
     </MyAccordion>
@@ -56,15 +60,18 @@ export default function EjemploDialog() {
       <MyDialog.Trigger>
         <button className="btn-open">Eliminar Cuenta</button>
       </MyDialog.Trigger>
-      
+
       <MyDialog.Portal>
         <MyDialog.Popup>
           <MyDialog.Title>Confirmar Acción</MyDialog.Title>
           <MyDialog.Description>
-            Esta acción es irreversible. ¿Estás completamente seguro de que deseas eliminar tu cuenta del sistema?
+            Esta acción es irreversible. ¿Estás completamente seguro de que
+            deseas eliminar tu cuenta del sistema?
           </MyDialog.Description>
-          
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
+
+          <div
+            style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}
+          >
             <MyDialog.Close>
               <button className="btn-cancel">Cancelar</button>
             </MyDialog.Close>
@@ -75,3 +82,4 @@ export default function EjemploDialog() {
     </MyDialog>
   );
 }
+```
