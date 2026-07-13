@@ -1,5 +1,5 @@
 import type { Asset, Entry, EntryFields } from "contentful";
-import type { WithContentTypeLink } from "./WithContentTypeLink";
+import type { WithContentTypeLink } from "./WithContentTypeLink.js";
 
 export interface TypeComponentSeoFields {
     internalName: EntryFields.Symbol;
@@ -11,7 +11,7 @@ export interface TypeComponentSeoFields {
     shareImages?: Asset[];
 }
 
-export type TypeComponentSeo = Entry<TypeComponentSeoFields>;
+export type TypeComponentSeo = Entry<{ contentTypeId: 'componentSeo', fields: TypeComponentSeoFields }>;
 
 export function isTypeComponentSeo(entry: WithContentTypeLink): entry is TypeComponentSeo {
     return entry?.sys?.contentType?.sys?.id === 'componentSeo'
