@@ -72,3 +72,9 @@ monitor-ci.toml
 AGENTS.md
 CLAUDE.md
 packages/
+# Local environment variables
+.env.local
+.env
+
+# Contentful logs
+contentful-export-error-log-*.json

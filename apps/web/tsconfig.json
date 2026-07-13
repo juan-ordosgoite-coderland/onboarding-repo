@@ -54,6 +54,9 @@
   "references": [
     {
       "path": "../../modules/ui-components"
+    },
+    {
+      "path": "../../modules/contentful-client"
     }
   ]
 }
