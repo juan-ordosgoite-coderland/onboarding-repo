@@ -20,8 +20,15 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@digital/configcat": [
+        "../../workspaces/digital/libs/clients/src/index.tsx"
+      ],
+      "@digital/configcat/*": [
+        "../../workspaces/digital/libs/clients/src/*"
+      ]
     },
     "types": ["jest", "node"],
     "outDir": "dist",

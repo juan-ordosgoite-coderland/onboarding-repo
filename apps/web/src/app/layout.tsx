@@ -1,3 +1,4 @@
+import { ConfigCatProvider } from '@/configcat';
 import './global.css';
 
 export const metadata = {
@@ -10,9 +11,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const sdkKey = process.env.CONFIGCAT_SDK_KEY || '';
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="es">
+      <body>
+        <ConfigCatProvider sdkKey={sdkKey}>
+          {children}
+        </ConfigCatProvider>
+      </body>
     </html>
   );
 }
