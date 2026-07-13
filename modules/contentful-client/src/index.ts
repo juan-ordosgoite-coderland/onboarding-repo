@@ -1,2 +1,2 @@
-export * from './lib/contentful-client.js';
-export * from './lib/types/contentful.types.js';
+export * from './lib/contentful-client';
+export * from './lib/types/contentful.types';

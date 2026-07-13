@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-  "contentful:types": "cf-content-types-generator -s 6jmt7rvzai2t -t XG2lI1Bmh1b0mky6Pq6Q-yPkGKTjCqMp4MexBBPcajE -o ./modules/contentful-client/src/lib/types -g -e blank"
-},
+    "contentful:types": "cf-content-types-generator -s $CONTENTFUL_SPACE_ID -t $CONTENTFUL_ACCESS_TOKEN -o ./modules/contentful-client/src/lib/types -g"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
