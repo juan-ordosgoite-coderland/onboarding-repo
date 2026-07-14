@@ -16,9 +16,6 @@
     },
     {
       "path": "./modules/contentful-client"
-    },
-    {
-      "path": "./workspaces/digital/libs/clients"
     }
   ]
 }

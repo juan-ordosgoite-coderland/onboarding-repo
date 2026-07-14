@@ -11,7 +11,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const sdkKey = process.env.CONFIGCAT_SDK_KEY || '';
+  const sdkKey = process.env.NEXT_PUBLIC_CONFIGCAT_SDK_KEY || '';
   return (
     <html lang="es">
       <body>

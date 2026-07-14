@@ -22,13 +22,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@digital/configcat": [
-        "../../workspaces/digital/libs/clients/src/index.tsx"
-      ],
-      "@digital/configcat/*": [
-        "../../workspaces/digital/libs/clients/src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "types": ["jest", "node"],
     "outDir": "dist",
