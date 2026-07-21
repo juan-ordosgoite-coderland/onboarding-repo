@@ -64,6 +64,7 @@
   ],
   "dependencies": {
     "@base-ui/react": "^1.6.0",
+    "configcat-node": "^11.4.1",
     "configcat-react": "^5.1.0",
     "contentful": "^11.12.6",
     "next": "~16.1.6",
