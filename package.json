@@ -66,6 +66,8 @@
     "@base-ui/react": "^1.6.0",
     "configcat-node": "^11.4.1",
     "configcat-react": "^5.1.0",
+    "@grafana/faro-web-sdk": "^2.8.2",
+    "@grafana/faro-web-tracing": "^2.8.2",
     "contentful": "^11.12.6",
     "next": "~16.1.6",
     "react": "^19.0.0",

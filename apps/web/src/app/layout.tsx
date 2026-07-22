@@ -1,4 +1,5 @@
 import { ConfigCatProvider } from '@/configcat';
+import { ObservabilityProvider, ErrorBoundary } from '@/observability';
 import './global.css';
 
 export const metadata = {
@@ -12,12 +13,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const sdkKey = process.env.NEXT_PUBLIC_CONFIGCAT_SDK_KEY || '';
+
   return (
     <html lang="es">
       <body>
-        <ConfigCatProvider sdkKey={sdkKey}>
-          {children}
-        </ConfigCatProvider>
+        <ObservabilityProvider>
+          <ErrorBoundary>
+            <ConfigCatProvider sdkKey={sdkKey}>
+              {children}
+            </ConfigCatProvider>
+          </ErrorBoundary>
+        </ObservabilityProvider>
       </body>
     </html>
   );
